@@ -1,3 +1,20 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 120px;
+	background: rgb(57, 62, 70);
+	background: radial-gradient(
+		circle,
+		rgba(57, 62, 70, 1) 0%,
+		rgba(34, 40, 49, 1) 100%
+	);
+}
+
+.text-shadow {
+	text-shadow: 1px 1px 2px black
+}
