@@ -2,9 +2,9 @@ import TaskButtons from "./TaskButtons";
 
 const Task = () => {
 	return (
-		<li>
+		<li className='flex justify-between pl-2 bg-slate-400 mb-2 rounded-sm'>
 			test
-            <TaskButtons/>
+			<TaskButtons />
 		</li>
 	);
 };

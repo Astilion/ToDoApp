@@ -1,9 +1,11 @@
+import Button from "./ui/Button";
+
 const TaskButtons = () => {
 	return (
-		<div>
-			<button>Accept</button>
-			<button>Edit</button>
-			<button>Delete</button>
+		<div className='inline-block'>
+			<Button>Accept</Button>
+			<Button>Edit</Button>
+			<Button>Delete</Button>
 		</div>
 	);
 };
