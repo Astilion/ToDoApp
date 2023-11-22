@@ -3,9 +3,9 @@
 @tailwind utilities;
 
 body {
-	display: flex;
-	justify-content: center;
-	align-items: center;
+width: 100%;
+max-width: 800px;
+margin: auto;
 	margin-top: 120px;
 	background: rgb(57, 62, 70);
 	background: radial-gradient(
