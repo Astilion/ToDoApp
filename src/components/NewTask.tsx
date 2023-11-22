@@ -1,3 +1,5 @@
+import TaskCategory from "./ui/TaskCategory";
+
 const NewTask = () => {
 	return (
 		<div className='bg-slate-600 p-5 text-white'>
@@ -14,36 +16,7 @@ const NewTask = () => {
 				Category:
 			</label>
 			<div className='flex flex-wrap'>
-				<div>
-					<input type='radio' id='home' name='tasks' />
-					<label className='p-2' htmlFor='home'>
-						Home
-					</label>
-				</div>
-				<div>
-					<input type='radio' id='sport' name='tasks' />
-					<label className='p-2' htmlFor='sport'>
-						Sport
-					</label>
-				</div>
-				<div>
-					<input type='radio' id='shopping' name='tasks' />
-					<label className='p-2' htmlFor='shopping'>
-						Shopping
-					</label>
-				</div>
-				<div>
-					<input type='radio' id='finances' name='tasks' />
-					<label className='p-2' htmlFor='finances'>
-						Finances
-					</label>
-				</div>
-				<div>
-					<input type='radio' id='work' name='tasks' />
-					<label className='p-2' htmlFor='work'>
-						Work
-					</label>
-				</div>
+			<TaskCategory/>
 			</div>
 		</div>
 	);
