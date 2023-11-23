@@ -1,4 +1,10 @@
 import Task from "./Task";
+
+const DUMMY_TASKS = [
+	{id: 't1', category: 'home', name: 'Cleaning'},
+	{id: 't2', category: 'sport', name: 'Go to Gym'},
+	{id: 't3', category: 'finances', name: 'Pay rent'},
+]
 const Tasks = () => {
 	return (
 		<div className='bg-slate-300 p-4'>
@@ -9,9 +15,9 @@ const Tasks = () => {
 				</p>
 			</div>
 			<ul>
-				<Task />
-				<Task />
-				<Task />
+				{DUMMY_TASKS.map((task) => (
+					<Task key={task.id}id={task.id} category={task.category} name={task.name}/>
+				))}
 			</ul>
 		</div>
 	);
