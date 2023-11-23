@@ -21,6 +21,10 @@ const NewTask = ({ addTaskHandler }: NewTaskProps) => {
 		} else {
 			setError(true);
 		}
+		console.log(inputRef.current);
+		if (inputRef.current) {
+			inputRef.current.value = "";
+		}
 	};
 	return (
 		<div className='bg-slate-600 p-5 text-white'>
