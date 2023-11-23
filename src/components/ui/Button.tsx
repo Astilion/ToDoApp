@@ -4,7 +4,7 @@ interface ButtonProps {
 }
 const Button = ({ children }: ButtonProps) => {
 	return (
-		<button className='px-2 py-1 ml-1 hover:bg-slate-500 transition-colors'>
+		<button className='px-2 py-1 ml-1 h-full hover:bg-slate-500 transition-colors'>
 			{children}
 		</button>
 	);
