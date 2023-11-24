@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Modal from "./Modal";
 
 interface EditTaskProps {
 	taskName: string;
@@ -18,10 +19,7 @@ const EditTask = ({ taskName, onClose, onSave }: EditTaskProps) => {
 	};
 
 	return (
-		<>
-			<div className='backdrop' onClick={onClose}></div>
-
-			<div className='modal'>
+			<Modal onClose={onClose}>
 				<h2>Edit Task</h2>
 				<label htmlFor='editedName'>Task Name:</label>
 				<input
@@ -32,8 +30,8 @@ const EditTask = ({ taskName, onClose, onSave }: EditTaskProps) => {
 				/>
 				<button onClick={handleSave}>Save</button>
 				<button onClick={onClose}>Cancel</button>
-			</div>
-		</>
+			</Modal>
+
 	);
 };
 
