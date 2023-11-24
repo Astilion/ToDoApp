@@ -12,9 +12,9 @@ const Modal = ({ onClose, children }: ModalProps) => {
 			<div
 				className='fixed top-0 left-0 w-full h-screen z-20 backdrop'
 				onClick={onClose}></div>
-			<div className='flex justify-center'>
+			<div className='flex justify-center items-center'>
 				<motion.div
-					className='fixed top-1/3 w-full lg:w-3/4 bg-white p-1 rounded-md shadow-md z-30'
+					className='bg-slate-300 p-2 fixed top-1/3 md:min-w-3xl w-full md:max-w-3xl rounded-md shadow-md z-30'
 					variants={{
 						hidden: { opacity: 0, y: 30, scale: 0.8 },
 						visible: { opacity: 1, y: 0, scale: 1 },
