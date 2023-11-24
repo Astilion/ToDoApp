@@ -19,10 +19,12 @@ function App() {
 		setTasks(prevTasks => [...prevTasks, newTask]);
 	};
 	return (
-		<div className='w-full '>
-			<Header />
-			<NewTask addTaskHandler={addTaskHandler} />
-			<Tasks tasks={tasks} />
+		<div className='flex justify-center items-center'>
+			<div className='md:min-w-3xl w-full md:max-w-3xl '>
+				<Header />
+				<NewTask addTaskHandler={addTaskHandler} />
+				<Tasks tasks={tasks} />
+			</div>
 		</div>
 	);
 }
