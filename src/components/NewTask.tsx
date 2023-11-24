@@ -21,7 +21,6 @@ const NewTask = ({ addTaskHandler }: NewTaskProps) => {
 		} else {
 			setError(true);
 		}
-		console.log(inputRef.current);
 		if (inputRef.current) {
 			inputRef.current.value = "";
 		}

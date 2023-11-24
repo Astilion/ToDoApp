@@ -23,7 +23,7 @@ const Task = ({ id, name }: TaskProps) => {
 			{!isDeleted && (
 				<li
 					className={`flex justify-between pl-2 bg-slate-400 mb-2 rounded-sm transition-colors ${
-						isCompleted ? "bg-gray-500 text-gray-200" : "bg-slate-400"
+						isCompleted ? "bg-gray-600 text-gray-200" : "bg-slate-400"
 					}`}
 					id={id}>
 					<span className={`self-center ${isCompleted ? "line-through" : ""}`}>
