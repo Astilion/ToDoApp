@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { handleEnterKey } from "../utils/handleEnterKey";
 import Modal from "./Modal";
 
 interface EditTaskProps {
@@ -18,17 +19,22 @@ const EditTask = ({ taskName, onClose, onSave }: EditTaskProps) => {
 		setEditedName(e.target.value);
 	};
 
+	const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+		handleEnterKey(e, handleSave);
+	};
+
 	return (
 		<Modal onClose={onClose}>
 			<h2 className='font-bold mb-2 text-center'>Edit Task</h2>
 			<div className='bg-slate-800 h-[0.25px] rounded-md mb-2'></div>
-			<label  htmlFor='editedName'>Task Name:</label>
+			<label htmlFor='editedName'>Task Name:</label>
 			<input
 				className='p-1 my-2 rounded-md w-3/4'
 				type='text'
 				id='editedName'
 				value={editedName}
 				onChange={handleNameChange}
+				onKeyDown={handleKeyDown}
 			/>
 			<div className='flex justify-end p-2'>
 				<button

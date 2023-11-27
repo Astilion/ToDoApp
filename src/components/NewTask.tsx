@@ -1,5 +1,6 @@
 import TaskCategory from "./ui/TaskCategory";
 import { useRef, useState } from "react";
+import { handleEnterKey } from "../utils/handleEnterKey";
 
 interface NewTaskProps {
 	addTaskHandler: (inputValue: string) => void;
@@ -25,6 +26,9 @@ const NewTask = ({ addTaskHandler }: NewTaskProps) => {
 			inputRef.current.value = "";
 		}
 	};
+	const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+		handleEnterKey(e, handleAddTask);
+	};
 	return (
 		<div className='bg-slate-600 p-5 text-white'>
 			<input
@@ -32,6 +36,7 @@ const NewTask = ({ addTaskHandler }: NewTaskProps) => {
 				className={inputClasses.join(" ")}
 				type='text'
 				placeholder='Add task...'
+				onKeyDown={handleKeyDown}
 			/>
 
 			<button
