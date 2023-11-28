@@ -1,9 +1,10 @@
 import Task from "./Task";
 interface TasksProps {
-	tasks: { id: string; category: string; name: string }[];
+	tasks: { id: string;  TaskName: string }[];
 }
 const Tasks = ({ tasks }: TasksProps) => {
 	const isEmpty = tasks.length === 0;
+	tasks.map(task => console.log(task))
 	return (
 		<div className='bg-slate-300 p-4'>
 			<div className='text-center mb-3'>
@@ -17,8 +18,7 @@ const Tasks = ({ tasks }: TasksProps) => {
 					<Task
 						key={task.id}
 						id={task.id}
-						category={task.category}
-						name={task.name}
+						name={task.TaskName}
 					/>
 				))}
 			</ul>

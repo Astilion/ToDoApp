@@ -1,29 +1,55 @@
 import Header from "./components/ui/Header";
 import NewTask from "./components/NewTask";
 import Tasks from "./components/Tasks";
-import { useState } from "react";
-
+import { useEffect, useState } from "react";
+import { db } from "./config/firebase.js";
+import { getDocs, collection, addDoc } from "firebase/firestore";
 function App() {
-	const [tasks, setTasks] = useState([
-		{ id: "t1", category: "home", name: "Cleaning" },
-		{ id: "t2", category: "sport", name: "Go to Gym" },
-		{ id: "t3", category: "finances", name: "Pay rent" },
-	]);
 
-	const addTaskHandler = (inputValue: string) => {
-		const newTask = {
-			id: `t${tasks.length + 1}`,
-			category: "home",
-			name: inputValue,
-		};
-		setTasks(prevTasks => [...prevTasks, newTask]);
+
+	const [tasks2, setTasks2] = useState([]);
+	const tasksCollectionRef = collection(db, "tasks");
+
+	const getTaskList = async () => {
+		try {
+			const data = await getDocs(tasksCollectionRef);
+			const filteredData = data.docs.map(doc => ({
+				...doc.data(),
+				id: doc.id,
+
+			}));
+			setTasks2(filteredData);
+			console.log(filteredData);
+		} catch (err) {
+			console.error(err);
+		}
+	};
+
+	useEffect(() => {
+		getTaskList();
+	}, []);
+
+	const addTaskHandler = async (inputValue) => {
+		try {
+			const newTask = {
+				name: inputValue,
+			};
+	
+			const docRef = await addDoc(tasksCollectionRef, newTask);
+			setTasks2((prevTasks) => [
+				...prevTasks,
+				{ ...newTask, id: docRef.id },
+			]);
+		} catch (err) {
+			console.error("Error adding task: ", err);
+		}
 	};
 	return (
 		<div className='flex justify-center items-center'>
 			<div className='md:min-w-3xl w-full md:max-w-3xl '>
 				<Header />
 				<NewTask addTaskHandler={addTaskHandler} />
-				<Tasks tasks={tasks} />
+				<Tasks tasks={tasks2} />
 			</div>
 		</div>
 	);

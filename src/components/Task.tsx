@@ -3,17 +3,17 @@ import EditTask from "./EditTask";
 import { useState } from "react";
 interface TaskProps {
 	id: string;
-	category: string;
 	name: string;
 }
 const Task = ({ id, name: initialName }: TaskProps) => {
-	const [name, setName] = useState(initialName);
+	const [name, setName] = useState(initialName || '');
 	const [isDeleted, setIsDeleted] = useState(false);
 	const [isCompleted, setIsCompleted] = useState(false);
 	const [isEditing, setIsEditing] = useState(false);
 	const handleCheckClick = () => {
 		setIsCompleted(!isCompleted);
 	};
+	console.log(initialName);
 	const handleEditClick = () => {
 		setIsEditing(true);
 	};
@@ -37,9 +37,9 @@ const Task = ({ id, name: initialName }: TaskProps) => {
 						isCompleted ? "bg-gray-500 text-gray-200" : "bg-slate-400"
 					}`}
 					id={id}>
-					<span className={`self-center ${isCompleted ? "line-through" : ""}`}>
-						{name}
-					</span>
+          <span className={`self-center ${isCompleted ? "line-through" : ""}`}>
+            {name || "No Name"} {/* Display "No Name" if name is falsy */}
+          </span>
 
 					<TaskButtons
 						onCheckClick={handleCheckClick}
