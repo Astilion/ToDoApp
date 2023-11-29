@@ -29,7 +29,7 @@ function App() {
 		getTaskList();
 	}, []);
 
-	const addTaskHandler = async (inputValue) => {
+	const addTaskHandler = async (inputValue:string) => {
 		try {
 			const newTask = {
 				name: inputValue,
