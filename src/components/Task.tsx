@@ -57,7 +57,8 @@ const Task = ({ id, name: initialName }: TaskProps) => {
 			)}
 			{isEditing && (
 				<EditTask
-					taskName={name}
+					TaskName={name}
+					taskId={id}
 					onClose={handleEditClose}
 					onSave={handleEditSave}
 				/>

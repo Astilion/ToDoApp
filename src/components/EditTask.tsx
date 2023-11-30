@@ -1,17 +1,22 @@
 import { useState } from "react";
 import { handleEnterKey } from "../utils/handleEnterKey";
 import Modal from "./Modal";
+import { db } from "../config/firebase";
+import { doc, updateDoc } from "firebase/firestore";
 
 interface EditTaskProps {
-	taskName: string;
+	taskId: string
+	TaskName: string;
 	onClose: () => void;
 	onSave: (editedName: string) => void;
 }
 
-const EditTask = ({ taskName, onClose, onSave }: EditTaskProps) => {
-	const [editedName, setEditedName] = useState(taskName);
+const EditTask = ({ taskId,TaskName, onClose, onSave }: EditTaskProps) => {
+	const [editedName, setEditedName] = useState(TaskName);
 
-	const handleSave = () => {
+	const handleSave = async () => {
+		const taskDocRef = doc(db, "tasks", taskId);
+		await updateDoc(taskDocRef, { TaskName: editedName });
 		onSave(editedName);
 		onClose();
 	};
