@@ -10,9 +10,6 @@ interface tasks {
 	TaskName: string;
 }
 function App() {
-
-
-
 	const [tasks2, setTasks2] = useState<tasks[]>([]);
 	const tasksCollectionRef = collection(db, "tasks");
 
@@ -22,7 +19,6 @@ function App() {
 			const filteredData = data.docs.map(doc => ({
 				...doc.data(),
 				id: doc.id,
-
 			}));
 			setTasks2(filteredData);
 			console.log(filteredData);
@@ -35,17 +31,14 @@ function App() {
 		getTaskList();
 	}, []);
 
-	const addTaskHandler = async (inputValue:string) => {
+	const addTaskHandler = async (inputValue: string) => {
 		try {
 			const newTask = {
 				TaskName: inputValue,
 			};
-	
+
 			const docRef = await addDoc(tasksCollectionRef, newTask);
-			setTasks2((prevTasks) => [
-				...prevTasks,
-				{ ...newTask, id: docRef.id },
-			]);
+			setTasks2(prevTasks => [...prevTasks, { ...newTask, id: docRef.id }]);
 		} catch (err) {
 			console.error("Error adding task: ", err);
 		}

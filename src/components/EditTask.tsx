@@ -5,13 +5,13 @@ import { db } from "../config/firebase";
 import { doc, updateDoc } from "firebase/firestore";
 
 interface EditTaskProps {
-	taskId: string
+	taskId: string;
 	TaskName: string;
 	onClose: () => void;
 	onSave: (editedName: string) => void;
 }
 
-const EditTask = ({ taskId,TaskName, onClose, onSave }: EditTaskProps) => {
+const EditTask = ({ taskId, TaskName, onClose, onSave }: EditTaskProps) => {
 	const [editedName, setEditedName] = useState(TaskName);
 
 	const handleSave = async () => {
