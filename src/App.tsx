@@ -4,10 +4,16 @@ import Tasks from "./components/Tasks";
 import { useEffect, useState } from "react";
 import { db } from "./config/firebase.js";
 import { getDocs, collection, addDoc } from "firebase/firestore";
+
+interface tasks {
+	id: string;
+	TaskName: string;
+}
 function App() {
 
 
-	const [tasks2, setTasks2] = useState([]);
+
+	const [tasks2, setTasks2] = useState<tasks[]>([]);
 	const tasksCollectionRef = collection(db, "tasks");
 
 	const getTaskList = async () => {
@@ -32,7 +38,7 @@ function App() {
 	const addTaskHandler = async (inputValue:string) => {
 		try {
 			const newTask = {
-				name: inputValue,
+				TaskName: inputValue,
 			};
 	
 			const docRef = await addDoc(tasksCollectionRef, newTask);

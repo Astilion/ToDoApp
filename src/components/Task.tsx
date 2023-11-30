@@ -1,12 +1,14 @@
 import TaskButtons from "./TaskButtons";
 import EditTask from "./EditTask";
 import { useState } from "react";
+import { db } from "../config/firebase";
+import { doc, deleteDoc } from "firebase/firestore";
 interface TaskProps {
 	id: string;
 	name: string;
 }
 const Task = ({ id, name: initialName }: TaskProps) => {
-	const [name, setName] = useState(initialName || '');
+	const [name, setName] = useState(initialName || "");
 	const [isDeleted, setIsDeleted] = useState(false);
 	const [isCompleted, setIsCompleted] = useState(false);
 	const [isEditing, setIsEditing] = useState(false);
@@ -17,8 +19,13 @@ const Task = ({ id, name: initialName }: TaskProps) => {
 	const handleEditClick = () => {
 		setIsEditing(true);
 	};
-	const handleDeleteClick = () => {
-		setIsDeleted(!isDeleted);
+	const handleDeleteClick = async () => {
+		try {
+			await deleteDoc(doc(db, "tasks", id));
+			setIsDeleted(true);
+		} catch (err) {
+			console.error("Error deleting task: ", err);
+		}
 	};
 
 	const handleEditSave = (editedName: string) => {
@@ -37,9 +44,9 @@ const Task = ({ id, name: initialName }: TaskProps) => {
 						isCompleted ? "bg-gray-500 text-gray-200" : "bg-slate-400"
 					}`}
 					id={id}>
-          <span className={`self-center ${isCompleted ? "line-through" : ""}`}>
-            {name || "No Name"} {/* Display "No Name" if name is falsy */}
-          </span>
+					<span className={`self-center ${isCompleted ? "line-through" : ""}`}>
+						{name || "No Name"} {/* Display "No Name" if name is falsy */}
+					</span>
 
 					<TaskButtons
 						onCheckClick={handleCheckClick}
