@@ -3,18 +3,18 @@
 @tailwind utilities;
 
 
-body {
-	margin-top: 120px;
-	background: rgb(57, 62, 70);
+/* body {
+	margin-top: 120px; 
+	 background: rgb(57, 62, 70);
 	background: radial-gradient(
 		circle,
 		rgba(57, 62, 70, 1) 0%,
 		rgba(34, 40, 49, 1) 100%
 	);
-}
+} */
 
 .text-shadow {
-	text-shadow: 1px 1px 2px black
+	text-shadow: 1px 1px 2px black;
 }
 
 .backdrop {
@@ -32,3 +32,4 @@ body {
 	z-index: 30;
 	animation: slide-down 300ms ease-out forwards;
 }
+

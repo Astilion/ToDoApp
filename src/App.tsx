@@ -1,6 +1,7 @@
 import Header from "./components/ui/Header";
 import NewTask from "./components/NewTask";
 import Tasks from "./components/Tasks";
+import SideNav from "./components/ui/SideNav.js";
 import { useEffect, useState } from "react";
 import { db } from "./config/firebase.js";
 import { getDocs, collection, addDoc } from "firebase/firestore";
@@ -44,8 +45,9 @@ function App() {
 		}
 	};
 	return (
-		<div className='flex justify-center items-center'>
-			<div className='md:min-w-3xl w-full md:max-w-3xl '>
+		<div className='flex justify-between'>
+				<SideNav/>
+			<div className='relative md:min-w-3xl w-full md:mt-10 md:max-w-3xl md:mx-auto '>
 				<Header />
 				<NewTask addTaskHandler={addTaskHandler} />
 				<Tasks tasks={tasks2} />
