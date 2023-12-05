@@ -15,7 +15,6 @@ const Task = ({ id, name: initialName }: TaskProps) => {
 	const handleCheckClick = () => {
 		setIsCompleted(!isCompleted);
 	};
-	console.log(initialName);
 	const handleEditClick = () => {
 		setIsEditing(true);
 	};

@@ -11,8 +11,25 @@ interface tasks {
 	TaskName: string;
 }
 function App() {
+	const [theme, setTheme] = useState("dark");
 	const [tasks2, setTasks2] = useState<tasks[]>([]);
 	const tasksCollectionRef = collection(db, "tasks");
+
+	useEffect(() => {
+		console.log("Theme:", theme);
+		console.log("Document Class List:", document.documentElement.classList);
+		if (theme === "dark") {
+			document.documentElement.classList.toggle("dark");
+		}
+	}, [theme]);
+
+	const handleThemeSwitch = () => {
+		setTheme(prevTheme => {
+			const newTheme = prevTheme === "dark" ? "light" : "dark";
+			console.log(newTheme); // Log the updated theme
+			return newTheme;
+		});
+	};
 
 	const getTaskList = async () => {
 		try {
@@ -22,12 +39,10 @@ function App() {
 				id: doc.id,
 			}));
 			setTasks2(filteredData);
-			console.log(filteredData);
 		} catch (err) {
 			console.error(err);
 		}
 	};
-
 	useEffect(() => {
 		getTaskList();
 	}, []);
@@ -45,8 +60,8 @@ function App() {
 		}
 	};
 	return (
-		<div className='flex justify-between'>
-				<SideNav/>
+		<div className='flex justify-between dark:bg-black bg-white'>
+			<SideNav handleThemeSwitch={handleThemeSwitch} />
 			<div className='relative md:min-w-3xl w-full md:mt-10 md:max-w-3xl md:mx-auto '>
 				<Header />
 				<NewTask addTaskHandler={addTaskHandler} />

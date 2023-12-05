@@ -4,7 +4,6 @@ interface TasksProps {
 }
 const Tasks = ({ tasks }: TasksProps) => {
 	const isEmpty = tasks.length === 0;
-	tasks.map(task => console.log(task))
 	return (
 		<div className='bg-slate-300 p-4'>
 			<div className='text-center mb-3'>

@@ -1,4 +1,7 @@
-const SideNav = () => {
+interface SideNavProps {
+	handleThemeSwitch: () => void;
+}
+const SideNav = ({ handleThemeSwitch }: SideNavProps) => {
 	return (
 		<nav className='hidden w-72 md:flex md:flex-col md:pl-4 md:py-4 bg-slate-100 min-h-full'>
 			<div className='flex justify-between'>
@@ -8,7 +11,7 @@ const SideNav = () => {
 				</div>
 
 				<div>
-					<button>
+					<button onClick={handleThemeSwitch}>
 						<label className='relative inline-flex items-center me-5 cursor-pointer'>
 							<input
 								type='checkbox'
