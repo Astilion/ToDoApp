@@ -3,7 +3,7 @@ interface SideNavProps {
 }
 const SideNav = ({ handleThemeSwitch }: SideNavProps) => {
 	return (
-		<nav className='hidden w-72 md:flex md:flex-col md:pl-4 md:py-4 bg-slate-100 min-h-full'>
+		<nav className='hidden w-72 md:flex md:flex-col md:pl-4 md:py-4 bg-slate-100 dark:bg-gray-700 dark:text-white min-h-full'>
 			<div className='flex justify-between'>
 				<div className='mb-2 '>
 					<span>img </span>

@@ -60,7 +60,7 @@ function App() {
 		}
 	};
 	return (
-		<div className='flex justify-between dark:bg-black bg-white'>
+		<div className='flex justify-between h-screen-small md:h-screen dark:bg-gray-800 bg-slate-200'>
 			<SideNav handleThemeSwitch={handleThemeSwitch} />
 			<div className='relative md:min-w-3xl w-full md:mt-10 md:max-w-3xl md:mx-auto '>
 				<Header />
