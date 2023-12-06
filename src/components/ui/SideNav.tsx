@@ -1,4 +1,5 @@
 import NavListItem from "./NavListItem";
+import { IconLayoutSidebar } from '@tabler/icons-react';
 
 interface SideNavProps {
   handleThemeSwitch: () => void;
@@ -14,7 +15,7 @@ const SideNav = ({ handleThemeSwitch }: SideNavProps) => {
 
         <div className="">
           <button onClick={handleThemeSwitch}>
-            <label className="relative me-5 inline-flex cursor-pointer items-center">
+            <label className="relative inline-flex cursor-pointer items-center ml-4">
               <input
                 type="checkbox"
                 value=""
@@ -25,6 +26,9 @@ const SideNav = ({ handleThemeSwitch }: SideNavProps) => {
               <span className="ms-3 text-sm font-medium "></span>
             </label>
           </button>
+        </div>
+        <div className="mr-4">
+          <button><IconLayoutSidebar color="gray"/></button>
         </div>
       </div>
         <div className="h-px w-full bg-slate-300 dark:bg-gray-600 mb-2"></div>
