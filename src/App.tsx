@@ -1,7 +1,7 @@
 import Header from "./components/ui/Header";
 import NewTask from "./components/NewTask";
 import Tasks from "./components/Tasks";
-import SideNav from "./components/ui/SideNav.js";
+import SideNav from "./components/ui/Navigation/SideNav.js";
 import { useEffect, useState } from "react";
 import { db } from "./config/firebase.js";
 import { getDocs, collection, addDoc } from "firebase/firestore";
