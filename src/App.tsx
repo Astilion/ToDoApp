@@ -62,7 +62,7 @@ function App() {
   return (
     <div className="flex h-screen-small justify-between bg-slate-200 dark:bg-gray-800 md:h-screen">
       <SideNav handleThemeSwitch={handleThemeSwitch} />
-      <div className="md:min-w-3xl relative w-full md:mx-auto md:mt-10 md:max-w-3xl ">
+      <div className="md:min-w-3xl relative w-full  md:mx-auto md:mt-10 md:max-w-3xl">
         <Header />
         <NewTask addTaskHandler={addTaskHandler} />
         <Tasks tasks={tasks2} />

@@ -1,13 +1,20 @@
 import NavListItem from "./NavListItem";
-import { IconLayoutSidebar } from '@tabler/icons-react';
+import { IconLayoutSidebar } from "@tabler/icons-react";
+import { useState } from "react";
 
 interface SideNavProps {
   handleThemeSwitch: () => void;
 }
 const SideNav = ({ handleThemeSwitch }: SideNavProps) => {
+  const [isNavOpen, setIsNavOpen] = useState(false);
+
+  const toggleNav = () => {
+    setIsNavOpen(!isNavOpen);
+    console.log(isNavOpen);
+  };
   return (
-    <nav className="hidden min-h-full w-72 bg-slate-100 dark:bg-gray-700 dark:text-white md:flex md:flex-col">
-      <div className="flex justify-between md:pl-4 md:py-3">
+    <nav className=" fixed z-20 min-h-full w-full bg-slate-100 dark:bg-gray-700 dark:text-white md:flex md:w-auto md:flex-col">
+      <div className="flex justify-between md:py-3 md:pl-4">
         <div className="mb-1 ">
           <span>img </span>
           <span>Profile Name</span>
@@ -15,7 +22,7 @@ const SideNav = ({ handleThemeSwitch }: SideNavProps) => {
 
         <div className="">
           <button onClick={handleThemeSwitch}>
-            <label className="relative inline-flex cursor-pointer items-center ml-4">
+            <label className="relative ml-4 inline-flex cursor-pointer items-center">
               <input
                 type="checkbox"
                 value=""
@@ -26,12 +33,13 @@ const SideNav = ({ handleThemeSwitch }: SideNavProps) => {
               <span className="ms-3 text-sm font-medium "></span>
             </label>
           </button>
-        </div>
-        <div className="mr-4">
-          <button><IconLayoutSidebar color="gray"/></button>
+
+          <button className="mr-4" onClick={toggleNav}>
+            <IconLayoutSidebar color="gray" />
+          </button>
         </div>
       </div>
-        <div className="h-px w-full bg-slate-300 dark:bg-gray-600 mb-2"></div>
+      <div className="mb-2 h-px w-full bg-slate-300 dark:bg-gray-600"></div>
       <ul className="">
         <NavListItem>Calendar</NavListItem>
         <NavListItem>Today</NavListItem>
