@@ -1,7 +1,9 @@
+import userProfileImg from '../../../../public/profile.jpg'
+
 const UserProfile = () => {
     return (
         <div className="mb-1 ">
-        <span>img </span>
+        <img className='rounded-full' src={userProfileImg} alt="" />
         <span>Profile Name</span>
       </div>
     )

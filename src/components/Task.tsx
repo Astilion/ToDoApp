@@ -40,7 +40,7 @@ const Task = ({ id, name: initialName }: TaskProps) => {
       {!isDeleted && (
         <li
           className={`mb-2 flex justify-between rounded-sm bg-slate-400 pl-2 transition-colors ${
-            isCompleted ? "bg-gray-500 text-gray-200" : "bg-slate-400"
+            isCompleted ? "bg-gray-500 text-gray-700" : "bg-slate-400"
           }`}
           id={id}
         >
