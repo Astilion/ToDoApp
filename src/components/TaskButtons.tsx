@@ -13,7 +13,7 @@ const TaskButtons = ({
   onDeleteClick,
 }: TaskButtonsProps) => {
   return (
-    <div className="m-0 inline-block p-0">
+    <div className="flex m-0  p-0">
       <Button onClick={onCheckClick}>
         <IconCheck color="green" />
       </Button>
