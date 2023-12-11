@@ -1,4 +1,4 @@
-import userProfileImg from '../../../../public/profile.jpg'
+import userProfileImg from '../../../assets/profile.jpg'
 
 const UserProfile = () => {
     return (
