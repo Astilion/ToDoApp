@@ -1,8 +1,8 @@
 import TaskButtons from "./TaskButtons";
 import EditTask from "./EditTask";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { db } from "../config/firebase";
-import { doc, deleteDoc } from "firebase/firestore";
+import { doc, deleteDoc, updateDoc, getDoc } from "firebase/firestore";
 interface TaskProps {
   id: string;
   name: string;
@@ -12,8 +12,32 @@ const Task = ({ id, name: initialName }: TaskProps) => {
   const [isDeleted, setIsDeleted] = useState(false);
   const [isCompleted, setIsCompleted] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
-  const handleCheckClick = () => {
-    setIsCompleted(!isCompleted);
+
+  
+  useEffect(() => {
+    const fetchTaskData = async () => {
+      try {
+        const taskDoc = await getDoc(doc(db, "tasks", id));
+        if (taskDoc.exists()) {
+          const taskData = taskDoc.data();
+          setIsCompleted(taskData.isCompleted || false);
+        }
+      } catch (err) {
+        console.error("Error fetching task data: ", err);
+      }
+    };
+
+    fetchTaskData();
+  }, [id]);
+  const handleCheckClick = async () => {
+    try {
+      await updateDoc(doc(db, "tasks", id), {
+        isCompleted: !isCompleted,
+      });
+      setIsCompleted(!isCompleted);
+    } catch (err) {
+      console.error("Error updating task: ", err);
+    }
   };
   const handleEditClick = () => {
     setIsEditing(true);
@@ -45,7 +69,7 @@ const Task = ({ id, name: initialName }: TaskProps) => {
           id={id}
         >
           <span className={`self-center ${isCompleted ? "line-through" : ""}`}>
-            {name || "No Name"} {/* Display "No Name" if name is falsy */}
+            {name || "No Name"}
           </span>
 
           <TaskButtons
