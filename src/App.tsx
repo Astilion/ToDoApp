@@ -2,6 +2,7 @@ import Header from "./components/ui/Header";
 import NewTask from "./components/NewTask";
 import Tasks from "./components/Tasks";
 import SideNav from "./components/ui/Navigation/SideNav.js";
+import AuthForm from './components/auth/AuthForm'
 import { useEffect, useState } from "react";
 import { db } from "./config/firebase.js";
 import { getDocs, collection, addDoc } from "firebase/firestore";
@@ -60,14 +61,18 @@ function App() {
     }
   };
   return (
-    <div className="flex h-screen-small justify-between bg-slate-200 dark:bg-gray-800 md:h-screen">
-      <SideNav handleThemeSwitch={handleThemeSwitch} />
+    <>
+          <AuthForm/>
+    {/* <div className="flex h-screen-small justify-between bg-slate-200 dark:bg-gray-800 md:h-screen">
       <div className="md:min-w-3xl relative w-full  md:mx-auto md:mt-10 md:max-w-3xl">
         <Header />
+      <SideNav handleThemeSwitch={handleThemeSwitch} />
         <NewTask addTaskHandler={addTaskHandler} />
         <Tasks tasks={tasks2} />
       </div>
-    </div>
+
+    </div> */}
+    </>
   );
 }
 
