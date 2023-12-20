@@ -1,11 +1,12 @@
 import Header from "./components/ui/Header";
 import NewTask from "./components/NewTask";
 import Tasks from "./components/Tasks";
-import SideNav from "./components/ui/Navigation/SideNav.js";
+import SideNav from "./components/ui/Navigation/SideNav";
 import AuthForm from './components/auth/AuthForm'
 import { useEffect, useState } from "react";
 import { db } from "./config/firebase.js";
 import { getDocs, collection, addDoc } from "firebase/firestore";
+import Modal from "./components/Modal";
 
 interface tasks {
   id: string;
@@ -15,6 +16,12 @@ function App() {
   const [theme, setTheme] = useState("dark");
   const [tasks2, setTasks2] = useState<tasks[]>([]);
   const tasksCollectionRef = collection(db, "tasks");
+  const [isModalOpen, setIsModalOpen] = useState(true);
+
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
 
   useEffect(() => {
     console.log("Theme:", theme);
@@ -60,18 +67,25 @@ function App() {
       console.error("Error adding task: ", err);
     }
   };
+
+
   return (
     <>
-          <AuthForm/>
-    {/* <div className="flex h-screen-small justify-between bg-slate-200 dark:bg-gray-800 md:h-screen">
+    {isModalOpen && (
+        <Modal onClose={closeModal}>
+          <AuthForm />
+        </Modal>
+      )}
+
+    <div className="flex h-screen-small justify-between bg-slate-200 dark:bg-gray-800 md:h-screen">
+      <SideNav handleThemeSwitch={handleThemeSwitch} />
       <div className="md:min-w-3xl relative w-full  md:mx-auto md:mt-10 md:max-w-3xl">
         <Header />
-      <SideNav handleThemeSwitch={handleThemeSwitch} />
         <NewTask addTaskHandler={addTaskHandler} />
         <Tasks tasks={tasks2} />
       </div>
 
-    </div> */}
+    </div>
     </>
   );
 }

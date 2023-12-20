@@ -15,7 +15,7 @@ const Modal = ({ onClose, children }: ModalProps) => {
       ></div>
       <div className="flex items-center justify-center">
         <motion.div
-          className="md:min-w-3xl fixed top-1/3 z-30 w-full rounded-md bg-slate-300 p-2 shadow-md md:max-w-3xl"
+          className="md:min-w-3xl fixed top-1/3 z-30 w-full rounded-md bg-slate-500 p-2 shadow-md md:max-w-3xl"
           variants={{
             hidden: { opacity: 0, y: 30, scale: 0.8 },
             visible: { opacity: 1, y: 0, scale: 1 },

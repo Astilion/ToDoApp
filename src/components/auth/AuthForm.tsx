@@ -10,7 +10,7 @@ function AuthForm() {
   }
 
   return (
-    <div className='flex  justify-center h-screen items-center bg-slate-200 dark:bg-gray-800'>
+    <div className='flex  justify-center  items-center bg-slate-200 dark:bg-gray-600'>
       <form method="post">
         <h1>{isLogin ? 'Log in' : 'Create a new user'}</h1>
         <p>
