@@ -27,11 +27,17 @@ function AuthForm() {
           placeholder="Password"
           required
         />
-        <div>
-          <button onClick={switchAuthHandler} type="button">
+        <div className="m-3">
+          <button
+            onClick={switchAuthHandler}
+            className=" rounded-lg bg-sky-700 px-3 py-1 font-bold text-white transition-colors hover:bg-sky-500 sm:ml-2"
+            type="button"
+          >
             {isLogin ? "Create new user" : "Login"}
           </button>
-          <button>Save</button>
+          <button className=" rounded-lg bg-sky-700 px-3 py-1 font-bold text-white transition-colors hover:bg-sky-500 sm:ml-2">
+            Save
+          </button>
         </div>
       </form>
     </div>
