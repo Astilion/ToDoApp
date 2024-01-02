@@ -25,9 +25,9 @@ const SideNav = ({ handleThemeSwitch }: SideNavProps) => {
           isNavOpen ? "transform-none" : "-translate-x-full"
         }`}
       >
-        <div className="flex justify-between py-3 md:pl-4">
+        <div className="flex justify-between gap-1 py-3 md:pl-4">
           <UserProfile />
-          <div className="">
+          <div className="flex gap-1 items-center ml-4">
             <ThemeSwitch handleThemeSwitch={handleThemeSwitch} />
 
             <button className="mr-4" onClick={toggleNav}>
