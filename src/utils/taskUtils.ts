@@ -10,22 +10,21 @@ export const useTaskList = () => {
   const [tasks, setTasks] = useState<Task[]>([]);
   const tasksCollectionRef = collection(db, "tasks");
 
+  const getTaskList = async () => {
+    try {
+      const data = await getDocs(tasksCollectionRef);
+      const filteredData = data.docs.map((doc) => ({
+        ...doc.data(),
+        id: doc.id,
+      })) as Task[];
+      setTasks(filteredData);
+    } catch (err) {
+      console.log(err);
+    }
+  };
   useEffect(() => {
-    const fetchTasks = async () => {
-      try {
-        const data = await getDocs(tasksCollectionRef);
-        const filteredData = data.docs.map((doc) => ({
-          ...doc.data(),
-          id: doc.id,
-        })) as Task[];
-        setTasks(filteredData);
-      } catch (err) {
-        console.error(err);
-      }
-    };
-
-    fetchTasks();
-  }, [tasksCollectionRef]);
+    getTaskList();
+  }, []);
 
   const addTaskHandler = async (inputValue: string) => {
     try {
