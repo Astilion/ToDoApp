@@ -52,13 +52,13 @@ In the project you can add, delete, modify tasks and mark them as completed. You
 ### Built With
 
 [![React.js]][React-url]
-![TailwindCss]
-![Typescript]
-![Javascript]
-![HTML5]
-![CSS]
-![Redux]
-![React-Router]
+[![TailwindCss]][Tailwind-url]
+[![Javascript]][Javascript-url]
+[![Typescript]][Typescript-url]
+[![HTML5]][HTML5-url]
+[![CSS]][CSS-ur]
+[![Redux]][Redux-url]
+[![React-Router]][React-Router-url]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -113,10 +113,6 @@ You can create a task list and modify it.
 
 
 
-
-
-
-
 ## Project Status
 Project is: _in-progress_ 
 
@@ -136,8 +132,14 @@ Project Link: [https://github.com/Astilion/ToDoApp](https://github.com/Astilion/
 [TailwindCss]: https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white
 [Tailwind-url]: https://tailwindcss.com/
 [Typescript]: https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white
+[Typescript-url]: typescriptlang.org/
 [Javascript]: https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black
+[Javascript-url]: https://www.javascript.com/
 [HTML5]: https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white
-[CSS]: 	https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white
+[HTML5-url]: https://developer.mozilla.org/en-US/docs/Web/HTML 
+[CSS]: https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white
+[CSS-url]: https://developer.mozilla.org/en-US/docs/Web/CSS
 [Redux]: https://img.shields.io/badge/Redux-593D88?style=for-the-badge&logo=redux&logoColor=white
+[Redux-url]: https://redux.js.org/
 [React-Router]: https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white
+[React-Router-url]: https://reactrouter.com/en/main
