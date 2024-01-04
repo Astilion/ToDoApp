@@ -51,14 +51,14 @@ In the project you can add, delete, modify tasks and mark them as completed. You
 
 ### Built With
 
-![React][React.js]
-![Tailwind][TailwindCss]
-![Typescript][Typescript]
-![Javascript][Javascript]
-![HTML5][HTML5]
-![CSS][CSS]
-![Redux][Redux]
-![React-Router][React-Router]
+[React][React.js]
+[Tailwind][TailwindCss]
+[Typescript][Typescript]
+[Javascript][Javascript]
+[HTML5][HTML5]
+[CSS][CSS]
+[Redux][Redux]
+[React-Router][React-Router]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
