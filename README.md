@@ -51,7 +51,7 @@ In the project you can add, delete, modify tasks and mark them as completed. You
 
 ### Built With
 
-![React.js]
+![[React.js][React-url]]
 ![TailwindCss]
 ![Typescript]
 ![Javascript]
