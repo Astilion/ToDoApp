@@ -56,7 +56,7 @@ In the project you can add, delete, modify tasks and mark them as completed. You
 [![Javascript]][Javascript-url]
 [![Typescript]][Typescript-url]
 [![HTML5]][HTML5-url]
-[![CSS]][CSS-ur]
+[![CSS]][CSS-url]
 [![Redux]][Redux-url]
 [![React-Router]][React-Router-url]
 
