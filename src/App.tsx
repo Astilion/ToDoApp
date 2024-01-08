@@ -19,11 +19,11 @@ function App() {
 
   return (
     <>
-      {isModalOpen && (
+      {/* {isModalOpen && (
         <Modal onClose={closeModal}>
           <AuthForm />
         </Modal>
-      )}
+      )} */}
 
       <div className="flex h-screen-small justify-between bg-slate-200 dark:bg-gray-800 md:h-screen">
         <SideNav handleThemeSwitch={handleThemeSwitch} />
