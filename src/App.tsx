@@ -4,18 +4,18 @@ import Header from "./components/ui/Header";
 import NewTask from "./components/NewTask";
 import Tasks from "./components/Tasks";
 import SideNav from "./components/ui/Navigation/SideNav";
-import AuthForm from "./components/auth/AuthForm";
-import { useState } from "react";
-import Modal from "./components/Modal";
+// import AuthForm from "./components/auth/AuthForm";
+// import { useState } from "react";
+// import Modal from "./components/Modal";
 
 function App() {
   const { handleThemeSwitch } = useTheme();
   const { tasks, addTaskHandler } = useTaskList();
-  const [isModalOpen, setIsModalOpen] = useState(true);
+  // const [isModalOpen, setIsModalOpen] = useState(true);
 
-  const closeModal = () => {
-    setIsModalOpen(false);
-  };
+  // const closeModal = () => {
+  //   setIsModalOpen(false);
+  // };
 
   return (
     <>
